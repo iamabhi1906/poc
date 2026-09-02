@@ -2,9 +2,11 @@ services:
   order_service:
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      target: dev
+
     container_name: order_service
     init: true
+    
     ports:
       - "3001:3000"
     volumes:
@@ -13,6 +15,7 @@ services:
     env_file:
       - .env
     command: pnpm start:dev
+    
     networks:
       - poc_network
 

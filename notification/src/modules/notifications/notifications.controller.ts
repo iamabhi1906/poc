@@ -9,11 +9,6 @@ export class NotificationsController {
 	@EventPattern("order.created")
 	async handleOrderCreated(@Payload() order: any) {
 		console.log("Order created:", order);
-
-		await this.sendOrderConfirmation(order);
-	}
-
-	private async sendOrderConfirmation(order: any) {
-		console.log(`Sending notification for order ${order.productId}`);
+		await this.notificationsService.sendOrderConfirmation(order);
 	}
 }

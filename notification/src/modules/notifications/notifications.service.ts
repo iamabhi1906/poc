@@ -1,4 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable } from "@nestjs/common";
 
 @Injectable()
-export class NotificationsService {}
+export class NotificationsService {
+	async sendOrderConfirmation(order: any) {
+		console.log(`Sending notification for order ${order.productId}`);
+	}
+}
